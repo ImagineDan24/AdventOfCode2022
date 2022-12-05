@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.Day
 {
-    public static class Day3
+    public static class Day4
     {
         public static void Main()
         {
-            var fileInput = @"..\..\..\Data\Day3.txt";
+            var fileInput = @"..\..\..\Data\Day4.txt";
             var lines = File.ReadAllLines(fileInput);
 
             Part1(lines);
@@ -19,14 +19,14 @@ namespace AdventOfCode2022.Day
 
         public static void Part1(String[]? lines)
         {
-            Console.WriteLine("Commencing Day 3, Part 1...");
+            Console.WriteLine("Commencing Day 4, Part 1...");
 
             
         }
 
         public static void Part2(String[]? lines)
         {
-            Console.WriteLine("Commencing Day 3, Part 2...");
+            Console.WriteLine("Commencing Day 4, Part 2...");
 
             
         }
