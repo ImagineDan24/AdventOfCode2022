@@ -13,12 +13,27 @@ namespace AdventOfCode2022.Day
             var fileInput = @"..\..\..\Data\Day1.txt";
             var lines = File.ReadAllLines(fileInput);
 
-            Console.WriteLine("Commencing Day 1, Part A...");
+            Console.WriteLine("Commencing Day 1, Part 1...");
 
+            int highestCals = 0;
+            int currentCalSum = 0;
 
-
-
-
+            for (int i=0; i<lines.Length; i++)
+            {
+                if (lines[i] == "")
+                {
+                    if (currentCalSum > highestCals)
+                    {
+                        highestCals = currentCalSum;
+                    }
+                    currentCalSum = 0;
+                }
+                else
+                {
+                    currentCalSum += int.Parse(lines[i]);
+                }
+            }
+            Console.WriteLine("Answer: " + highestCals);
 
         }
     }
