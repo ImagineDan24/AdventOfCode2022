@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Day\Day1.cs" />
+    <Compile Remove="Day\Day3.cs" />
+    <Compile Remove="Day\Day4.cs" />
+  </ItemGroup>
+
 </Project>
