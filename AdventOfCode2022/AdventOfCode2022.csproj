@@ -8,7 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Day\Day1.cs" />
+    <Compile Remove="bin\**" />
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="bin\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Day\Day2.cs" />
     <Compile Remove="Day\Day3.cs" />
     <Compile Remove="Day\Day4.cs" />
   </ItemGroup>
