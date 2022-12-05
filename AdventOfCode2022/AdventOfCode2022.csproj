@@ -16,10 +16,4 @@
     <None Remove="obj\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Day\Day1.cs" />
-    <Compile Remove="Day\Day2.cs" />
-    <Compile Remove="Day\Day3.cs" />
-  </ItemGroup>
-
 </Project>
