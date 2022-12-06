@@ -10,7 +10,6 @@ namespace AdventOfCode2022.Day
 
             if (input != null)
             {
-
                 Part1And2(input, 4);
                 Part1And2(input, 14);
             }
