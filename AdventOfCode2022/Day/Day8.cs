@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-
+﻿
 namespace AdventOfCode2022.Day
 {
     public static class Day8
