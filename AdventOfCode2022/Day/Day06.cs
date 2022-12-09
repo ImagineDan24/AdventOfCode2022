@@ -1,11 +1,10 @@
-﻿
-namespace AdventOfCode2022.Day
+﻿namespace AdventOfCode2022.Day
 {
-    public static class Day6
+    public static class Day06
     {
         public static void Main()
         {
-            var fileInput = @"..\..\..\Data\Day6.txt";
+            var fileInput = @"..\..\..\Data\Day06.txt";
             var input = File.ReadAllLines(fileInput)[0];
 
             if (input != null)
@@ -17,8 +16,8 @@ namespace AdventOfCode2022.Day
 
         public static void Part1And2(String input, int sequenceNum)
         {
-            if (sequenceNum == 4) { Console.WriteLine("Commencing Day 6, Part 1..."); }
-            else { Console.WriteLine("Commencing Day 6, Part 2..."); }
+            if (sequenceNum == 4) { Console.WriteLine("Commencing Day 06, Part 1..."); }
+            else { Console.WriteLine("Commencing Day 06, Part 2..."); }
 
             Queue<char> queue = new Queue<char>();
             int index = 0;

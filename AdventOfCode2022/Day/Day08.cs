@@ -1,11 +1,10 @@
-﻿
-namespace AdventOfCode2022.Day
+﻿namespace AdventOfCode2022.Day
 {
-    public static class Day8
+    public static class Day08
     {
         public static void Main()
         {
-            var fileInput = @"..\..\..\Data\Day8.txt";
+            var fileInput = @"..\..\..\Data\Day08.txt";
             var lines = File.ReadAllLines(fileInput);
 
             if (lines != null)
@@ -17,7 +16,7 @@ namespace AdventOfCode2022.Day
 
         public static void Part1(String[] lines)
         {
-            Console.WriteLine("Commencing Day 8, Part 1...");
+            Console.WriteLine("Commencing Day 08, Part 1...");
 
             int sum = 0;
 
@@ -103,7 +102,7 @@ namespace AdventOfCode2022.Day
 
         public static void Part2(String[] lines)
         {
-            Console.WriteLine("Commencing Day 8, Part 2...");
+            Console.WriteLine("Commencing Day 08, Part 2...");
 
             int highestProduct = 0;
 

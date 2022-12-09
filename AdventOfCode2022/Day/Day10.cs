@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-
-namespace AdventOfCode2022.Day
+﻿namespace AdventOfCode2022.Day
 {
-    public static class Day9
+    public static class Day10
     {
         public static void Main()
         {
@@ -20,14 +16,15 @@ namespace AdventOfCode2022.Day
 
         public static void Part1(String[] lines)
         {
-            Console.WriteLine("Commencing Day 9, Part 1...");
+            Console.WriteLine("Commencing Day 10, Part 1...");
+
 
             
         }
 
         public static void Part2(String[] lines)
         {
-            Console.WriteLine("Commencing Day 9, Part 2...");
+            Console.WriteLine("Commencing Day 10, Part 2...");
 
             
 

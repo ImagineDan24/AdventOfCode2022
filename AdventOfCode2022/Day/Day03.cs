@@ -1,15 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Text;
-
-namespace AdventOfCode2022.Day
+﻿namespace AdventOfCode2022.Day
 {
-    public static class Day3
+    public static class Day03
     {
         public static void Main()
         {
-            var fileInput = @"..\..\..\Data\Day3.txt";
+            var fileInput = @"..\..\..\Data\Day03.txt";
             var lines = File.ReadAllLines(fileInput);
 
             if (lines != null)
@@ -21,7 +16,7 @@ namespace AdventOfCode2022.Day
 
         public static void Part1(String[] lines)
         {
-            Console.WriteLine("Commencing Day 3, Part 1...");
+            Console.WriteLine("Commencing Day 03, Part 1...");
 
             //Lowercase item types a through z have priorities 1 through 26.
             //Uppercase item types A through Z have priorities 27 through 52.
@@ -53,7 +48,7 @@ namespace AdventOfCode2022.Day
 
         public static void Part2(String[] lines)
         {
-            Console.WriteLine("Commencing Day 3, Part 2...");
+            Console.WriteLine("Commencing Day 03, Part 2...");
 
             int total = 0;
 

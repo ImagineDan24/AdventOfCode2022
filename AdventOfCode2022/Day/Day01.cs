@@ -1,13 +1,10 @@
-﻿using System;
-using System.IO;
-
-namespace AdventOfCode2022.Day
+﻿namespace AdventOfCode2022.Day
 {
-    public static class Day1
+    public static class Day01
     {
         public static void Main()
         {
-            var fileInput = @"..\..\..\Data\Day1.txt";
+            var fileInput = @"..\..\..\Data\Day01.txt";
             var lines = File.ReadAllLines(fileInput);
 
             if (lines != null)
@@ -19,7 +16,7 @@ namespace AdventOfCode2022.Day
 
         public static void Part1(String[] lines)
         {
-            Console.WriteLine("Commencing Day 1, Part 1...");
+            Console.WriteLine("Commencing Day 01, Part 1...");
 
             int highestCals = 0;
             int currentCalSum = 0;
@@ -44,7 +41,7 @@ namespace AdventOfCode2022.Day
 
         public static void Part2(String[] lines)
         {
-            Console.WriteLine("Commencing Day 1, Part 2...");
+            Console.WriteLine("Commencing Day 01, Part 2...");
 
             int highestCals = 0;
             int secondHighestCals = 0;

@@ -1,13 +1,10 @@
-﻿using System;
-using System.IO;
-
-namespace AdventOfCode2022.Day
+﻿namespace AdventOfCode2022.Day
 {
-    public static class Day2
+    public static class Day02
     {
         public static void Main()
         {
-            var fileInput = @"..\..\..\Data\Day2.txt";
+            var fileInput = @"..\..\..\Data\Day02.txt";
             var lines = File.ReadAllLines(fileInput);
 
             if (lines != null)
@@ -19,7 +16,7 @@ namespace AdventOfCode2022.Day
 
         public static void Part1(String[] lines)
         {
-            Console.WriteLine("Commencing Day 2, Part 1...");
+            Console.WriteLine("Commencing Day 02, Part 1...");
 
             // A = rock, B = paper, C = scissors
             // X = rock, Y = paper, Z = scissors
@@ -49,7 +46,7 @@ namespace AdventOfCode2022.Day
 
         public static void Part2(String[] lines)
         {
-            Console.WriteLine("Commencing Day 2, Part 2...");
+            Console.WriteLine("Commencing Day 02, Part 2...");
 
             // A = rock, B = paper, C = scissors
             // 1 = rock, 2 = paper, 3 = scissors

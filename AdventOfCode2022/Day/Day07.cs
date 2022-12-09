@@ -1,11 +1,10 @@
-﻿
-namespace AdventOfCode2022.Day
+﻿namespace AdventOfCode2022.Day
 {
-    public static class Day7
+    public static class Day07
     {
         public static void Main()
         {
-            var fileInput = @"..\..\..\Data\Day7.txt";
+            var fileInput = @"..\..\..\Data\Day07.txt";
             var lines = File.ReadAllLines(fileInput);
 
             if (lines != null)
@@ -62,7 +61,7 @@ namespace AdventOfCode2022.Day
 
         public static void Part1(String[] lines)
         {
-            Console.WriteLine("Commencing Day 7, Part 1...");
+            Console.WriteLine("Commencing Day 07, Part 1...");
 
             var allDirectories = ObtainAllDirectories(lines);
 
@@ -80,7 +79,7 @@ namespace AdventOfCode2022.Day
 
         public static void Part2(String[] lines)
         {
-            Console.WriteLine("Commencing Day 7, Part 2...");
+            Console.WriteLine("Commencing Day 07, Part 2...");
 
             var allDirectories = ObtainAllDirectories(lines);
 

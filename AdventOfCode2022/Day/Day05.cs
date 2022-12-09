@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-
-namespace AdventOfCode2022.Day
+﻿namespace AdventOfCode2022.Day
 {
-    public static class Day5
+    public static class Day05
     {
         public static void Main()
         {
-            var fileInput = @"..\..\..\Data\Day5.txt";
+            var fileInput = @"..\..\..\Data\Day05.txt";
             var lines = File.ReadAllLines(fileInput);
 
             if (lines != null)
@@ -20,7 +16,7 @@ namespace AdventOfCode2022.Day
 
         public static void Part1(String[] lines)
         {
-            Console.WriteLine("Commencing Day 5, Part 1...");
+            Console.WriteLine("Commencing Day 05, Part 1...");
 
             Stack<string> stack1 = new Stack<string>(new string[] { "R", "G", "H", "Q", "S", "B", "T", "N" });
             Stack<string> stack2 = new Stack<string>(new string[] { "H", "S", "F", "D", "P", "Z", "J" });
@@ -57,7 +53,7 @@ namespace AdventOfCode2022.Day
 
         public static void Part2(String[] lines)
         {
-            Console.WriteLine("Commencing Day 5, Part 2...");
+            Console.WriteLine("Commencing Day 05, Part 2...");
 
             Stack<string> stack1 = new Stack<string>(new string[] { "R", "G", "H", "Q", "S", "B", "T", "N" });
             Stack<string> stack2 = new Stack<string>(new string[] { "H", "S", "F", "D", "P", "Z", "J" });
