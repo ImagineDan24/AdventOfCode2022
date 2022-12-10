@@ -20,15 +20,11 @@
 
             for (int i = 0; i < lines.Length; i++)
             {
-                if (lines[i] == "noop")
-                {
-                    list.Add(lines[i]);
-                }
-                else
+                if (lines[i] != "noop")
                 {
                     list.Add("noop");
-                    list.Add(lines[i]);
                 }
+                list.Add(lines[i]);
             }
 
             return list;
@@ -45,7 +41,7 @@
 
             for (int i = 0; i < list.Count; i++)
             {
-                if (i == 19 || i == 59 || i == 99 || i == 139 || i == 179 || i == 219)
+                if (i == 19 || (i > 19 && ((i + 1) % 40 == 20)))
                 {
                     sum += (i + 1) * register;
                 }
@@ -70,15 +66,23 @@
 
             for (int i = 0; i < list.Count; i++)
             {
-                if (i%40 == register || i%40 == register - 1 || i%40 == register + 1) { Console.Write("#"); }
-                else { Console.Write("."); }
+                if (i % 40 == register || i % 40 == register - 1 || i % 40 == register + 1) 
+                { 
+                    Console.Write("#"); 
+                }
+                else 
+                { 
+                    Console.Write("."); 
+                }
                 
                 if (list[i] != "noop")
                 {
                     register += Int32.Parse(list[i].Split(" ")[1]);
                 }
 
-                if (i == 39 || i == 79 || i == 119 || i == 159 || i == 199 || i == 239) { Console.WriteLine(); }
+                if ((i + 1) % 40 == 0) { 
+                    Console.WriteLine(); 
+                }
             }
         }
     }
