@@ -69,7 +69,6 @@
                     if (map.ContainsKey(newCoord) && map[newCoord] - map[coord] <= 1)
                     {
                         queue.Enqueue((newCoord, steps + 1));
-
                     }
                 }
             }
