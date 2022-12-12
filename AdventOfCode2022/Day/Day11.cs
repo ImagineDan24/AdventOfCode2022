@@ -16,16 +16,16 @@
 
         public class Monkey
         {
-            public List<int>? items;
+            public List<long>? items;
             public string? sign;
             public string? op;
-            public int divisibleBy;
+            public long divisibleBy;
             public int isTrue;
             public int isFalse;
-            public int itemsInspected;
-            public int lowerWorry;
+            public long itemsInspected;
+            public long lowerWorry;
 
-            public int operation(int worryLevel, string sign, string op)
+            public long operation(long worryLevel, string sign, string op)
             {
                 itemsInspected++;
 
@@ -36,40 +36,61 @@
                     return worryLevel / worryLevel;
                 }
 
-                if (sign == "+") { return worryLevel + Int32.Parse(op); }
-                else if (sign == "-") { return worryLevel - Int32.Parse(op); }
-                else if (sign == "*") { return worryLevel * Int32.Parse(op); }
-                return worryLevel / Int32.Parse(op);
+                if (sign == "+") { return worryLevel + long.Parse(op); }
+                else if (sign == "-") { return worryLevel - long.Parse(op); }
+                else if (sign == "*") { return worryLevel * long.Parse(op); }
+                return worryLevel / long.Parse(op);
             }
 
-            public int throwTo(int item, int divisibleBy, int lowerWorry)
-            {
-                if ((item / lowerWorry) % divisibleBy == 0) { return isTrue; }
+            public int throwTo(long item, long divisibleBy)
+            { 
+                if (item % divisibleBy == 0) { return isTrue; }
                 return isFalse;
             }
+        }
+
+        public static long CalculateLCD(List<long> divisors)
+        {
+            var workingList = new List<long>(divisors);
+            while (workingList.Distinct().Count() > 1)
+            {
+                var smallest = workingList.IndexOf(workingList.Min());
+                workingList[smallest] += divisors[smallest];
+            }
+            return workingList[0];
+
+        }
+
+        public static List<Monkey> ParseMonkeys(String[] lines, int numToLowerWorry)
+        {
+            var monkeys = new List<Monkey>();
+
+            for (int i = 0; i < lines.Length - 5; i += 7)
+            {
+                var getItemList = new List<long>();
+                foreach (var item in lines[i + 1].Split(": ")[1].Split(", "))
+                {
+                    getItemList.Add(long.Parse(item));
+                }
+                var getSign = lines[i + 2].Split("old ")[1].Split(" ")[0];
+                var getOp = lines[i + 2].Split("old ")[1].Split(" ")[1];
+                var getDivisibleBy = long.Parse(lines[i + 3].Split("by ")[1]);
+                var getIsTrue = int.Parse(lines[i + 4].Split("monkey ")[1]);
+                var getIsFalse = int.Parse(lines[i + 5].Split("monkey ")[1]);
+
+                monkeys.Add(new Monkey() { items = getItemList, sign = getSign, op = getOp, divisibleBy = getDivisibleBy, isTrue = getIsTrue, isFalse = getIsFalse, itemsInspected = 0, lowerWorry = numToLowerWorry });
+            }
+
+            return monkeys;
         }
 
         public static void Part1(String[] lines, int numToLowerWorry, int rounds)
         {
             Console.WriteLine("Commencing Day 11, Part 1...");
 
-            var monkeys = new List<Monkey>();
+            var monkeys = ParseMonkeys(lines, numToLowerWorry);
 
-            for (int i = 0; i < lines.Length - 5; i += 7)
-            {
-                var getItemList = new List<int>();
-                foreach (var item in lines[i + 1].Split(": ")[1].Split(", "))
-                {
-                    getItemList.Add(Int32.Parse(item));
-                }
-                var getSign = lines[i + 2].Split("old ")[1].Split(" ")[0];
-                var getOp = lines[i + 2].Split("old ")[1].Split(" ")[1];
-                var getDivisibleBy = Int32.Parse(lines[i + 3].Split("by ")[1]);
-                var getIsTrue = Int32.Parse(lines[i + 4].Split("monkey ")[1]);
-                var getIsFalse = Int32.Parse(lines[i + 5].Split("monkey ")[1]);
-
-                monkeys.Add(new Monkey() { items = getItemList, sign = getSign, op = getOp, divisibleBy = getDivisibleBy, isTrue = getIsTrue, isFalse = getIsFalse, itemsInspected = 0, lowerWorry = numToLowerWorry });
-            }
+            var lcd = CalculateLCD(monkeys.Select(m => m.divisibleBy).ToList());
 
             for (int i = 0; i < rounds; i++)
             {
@@ -80,20 +101,16 @@
                         for (int j = 0; j < monkeys[m].items.Count; j++)
                         {
                             var newWorryLevel = monkeys[m].operation(monkeys[m].items[j], monkeys[m].sign, monkeys[m].op);
-                            var throwTo = monkeys[m].throwTo(newWorryLevel, monkeys[m].divisibleBy, monkeys[m].lowerWorry);
-                            monkeys[throwTo].items.Add(newWorryLevel / monkeys[m].lowerWorry);
+                            var throwTo = monkeys[m].throwTo(newWorryLevel / numToLowerWorry, monkeys[m].divisibleBy);
+                            monkeys[throwTo].items.Add(newWorryLevel / numToLowerWorry);
                         }
                         monkeys[m].items.Clear();
                     }
                 }
-                if (i == 0 || i == 19 || i == 1000)
-                {
-                    var x = 1;
-                }
             }
 
-            int highest = monkeys[0].itemsInspected;
-            int secondHighest = monkeys[1].itemsInspected;
+            long highest = monkeys[0].itemsInspected;
+            long secondHighest = monkeys[1].itemsInspected;
             for (int i = 0; i < monkeys.Count; i++)
             {
                 if (monkeys[i].itemsInspected > highest)
@@ -115,7 +132,43 @@
         {
             Console.WriteLine("Commencing Day 11, Part 2...");
 
-            Part1(lines, numToLowerWorry, rounds);
+            var monkeys = ParseMonkeys(lines, numToLowerWorry);
+
+            var lcd = monkeys.Select(m => m.divisibleBy).Aggregate((l, r) => l * r);
+
+            for (int i = 0; i < rounds; i++)
+            {
+                for (int m = 0; m < monkeys.Count; m++)
+                {
+                    if (monkeys[m].items != null)
+                    {
+                        for (int j = 0; j < monkeys[m].items.Count; j++)
+                        {
+                            var newWorryLevel = monkeys[m].operation(monkeys[m].items[j], monkeys[m].sign, monkeys[m].op);
+                            var throwTo = monkeys[m].throwTo(newWorryLevel % lcd, monkeys[m].divisibleBy);
+                            monkeys[throwTo].items.Add(newWorryLevel % lcd);
+                        }
+                        monkeys[m].items.Clear();
+                    }
+                }
+            }
+
+            long highest = monkeys[0].itemsInspected;
+            long secondHighest = monkeys[1].itemsInspected;
+            for (int i = 0; i < monkeys.Count; i++)
+            {
+                if (monkeys[i].itemsInspected > highest)
+                {
+                    secondHighest = highest;
+                    highest = monkeys[i].itemsInspected;
+                }
+                else if (monkeys[i].itemsInspected > secondHighest)
+                {
+                    secondHighest = monkeys[i].itemsInspected;
+                }
+            }
+
+            Console.WriteLine("Answer: " + (highest * secondHighest));
 
         }
     }

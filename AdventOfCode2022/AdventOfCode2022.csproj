@@ -27,7 +27,8 @@
     <Compile Remove="Day\Day08.cs" />
     <Compile Remove="Day\Day09.cs" />
     <Compile Remove="Day\Day10.cs" />
-    <Compile Remove="Day\Day11.cs" />
+    <Compile Remove="Day\Day12.cs" />
+    <Compile Remove="Day\Day13.cs" />
   </ItemGroup>
 
   <ItemGroup>
