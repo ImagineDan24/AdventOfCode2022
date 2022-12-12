@@ -17,6 +17,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Day\Day01.cs" />
+    <Compile Remove="Day\Day02.cs" />
+    <Compile Remove="Day\Day03.cs" />
+    <Compile Remove="Day\Day04.cs" />
+    <Compile Remove="Day\Day05.cs" />
+    <Compile Remove="Day\Day06.cs" />
+    <Compile Remove="Day\Day07.cs" />
+    <Compile Remove="Day\Day08.cs" />
+    <Compile Remove="Day\Day09.cs" />
+    <Compile Remove="Day\Day10.cs" />
+    <Compile Remove="Day\Day11.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Collections" Version="4.3.0" />
   </ItemGroup>
 
